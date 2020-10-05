@@ -1,0 +1,42 @@
+/* 布局容器样式*/
+.el-header,
+.el-footer {
+    background-color: #25dd6c;
+    color: rgb(245, 14, 14);
+    /* text-align: center; */
+    line-height: 60px;
+}
+
+.el-aside {
+    background-color: #46dff3;
+    color: #000000;
+    text-align: center;
+    line-height: 50px;
+}
+
+.el-main {
+    background-color: #E9EEF3;
+    color: #333;
+    text-align: center;
+    line-height: 160px;
+}
+
+body>.el-container {
+    margin-bottom: 40px;
+}
+
+.el-container:nth-child(5) .el-aside,
+.el-container:nth-child(6) .el-aside {
+    line-height: 260px;
+}
+
+.el-container:nth-child(7) .el-aside {
+    line-height: 320px;
+}
+
+ /*自定义的当前页面的特殊样式*/
+ #logo {
+    text-decoration: none;
+    color: #f7f31d;
+    font-size: 45px;
+}

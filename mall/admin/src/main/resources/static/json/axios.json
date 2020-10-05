@@ -1,0 +1,8 @@
+
+{
+    "baseURL":"http://localhost:8005",
+    
+    "_list_carts":"列出所有的购物车/订单详情",
+    "list_carts":"/cart/list",
+    "//":"这是"
+}

@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  resources:
+    static-locations: classpath:/static
+  mvc:
+    static-path-pattern: /static/**
+  application:
+    name: xiachen-mall-page
+  thymeleaf:
+    enabled: true
+    cache: true
+    encoding: UTF-8
+    mode: HTML
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 182.92.200.48:8848
+        enabled: true
+  devtools:
+    restart:
+      enabled: true
+      exclude: application.yaml,templates,static
+    livereload:
+      enabled: false

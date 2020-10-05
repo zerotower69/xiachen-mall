@@ -1,0 +1,30 @@
+server:
+  port: 8060
+spring:
+  application:
+    name: xiachen-mall-mail
+
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: 182.92.200.48:8848
+  rabbitmq:
+    addresses: 182.92.200.48
+    port: 15672
+    username: guest
+    password: guest
+
+  mail:
+    protocol: smtp
+    host: smtp.163.com
+    username: 15777853671@163.com
+    password: VSEPLSKVDCXTSAWD
+    default-encoding: utf-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+        starttls:
+          enable: true
+          required: true

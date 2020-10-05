@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<!-- 备注信息 -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>订单管理</title>
+    <!-- 引入vue -->
+    <script src="../lib/vue/dist/vue.js "></script>
+    <!-- 引入 javascript -->
+    <script src="../lib/element-ui/lib/index.js"></script>
+    <!-- 引入 样式表  -->
+    <link rel="stylesheet" href="../css/order.css" />
+    <script src="../lib/axios/dist/axios.js"></script>
+</head>
+
+<body>
+    <!-- 在这里引入内容 -->
+    <div id="app">
+        <span style="float: left;">
+            <el-button type="success" icon="el-icon-check" circle></el-button>
+            <el-button type="danger" size="medium" @click="" round>取消</el-button>
+        </span>
+        <span style="float: right;">
+            <el-button type="primary" size="medium" @click="" round>增加订单</el-button>
+        </span>
+        <el-table :data="page.list" :height="screenHeight-100" border :header-cell-style="{textAlign:'center'}"
+            :cell-style="{textAlign:'center'}" highlight-current-row style="width:100%;text-align: center;"
+            empty-text="暂无订单数据">
+            <!-- 序号列固定 -->
+            <el-table-column label="序号" width="50" fixed>
+                <template slot-scope="scope">
+                    {{(page.current-1)*page.limit+scope.$index+1}}
+                </template>
+            </el-table-column>
+            <el-table-column label="订单编号" prop="orderCode" width="240">
+            </el-table-column>
+            <el-table-column label="订单创建时间">
+                <template slot-scope="scope">
+                    <span>{{scope.row.formatTime}}</span>
+                </template>
+            </el-table-column>
+            <el-table-column label="详情" type="expand" prop="scope.row.info" width="50">
+                <template slot-scope="scope">
+                    <template v-if="scope.row.info==[]">
+                        <span>数据无法获取</span>
+                    </template>
+                    <template e-else>
+                        <el-table :data="scope.row.info">
+                            <el-table-column label="序号">
+                                <template slot-scope="scope">
+                                    <span>{{scope.$index+1}}</span>
+                                </template>
+                            </el-table-column>
+                            <el-table-column label="品名" prop="productName">
+                            </el-table-column>
+                            <el-table-column label="单价">
+                                <template slot-scope="scope">
+                                    ￥ <span style="color: red;">{{scope.row.eachPrice|priceFilter}}</span>
+                                </template>
+                            </el-table-column>
+                            <el-table-column label="购买数量" prop="productNum"></el-table-column>
+                        </el-table>
+                    </template>
+                </template>
+            </el-table-column>
+            <el-table-column label="商品数" prop="count" width="40"></el-table-column>
+            <el-table-column label="商品总价值">
+                <template slot-scope="scope">
+                    ￥ <span style="color: red;">{{scope.row.amount| priceFilter}}</span>
+                </template>
+            </el-table-column>
+            <el-table-column label="订单状态">
+                <template slot-scope="scope">
+                    <template v-if="scope.row.status==0">
+                        <el-tag type="info">订单已创建</el-tag>
+                    </template>
+                    <template v-if="scope.row.status==1">
+                        <el-tag type="success">订单已发货</el-tag>
+                    </template>
+                </template>
+            </el-table-column>
+        </el-table>
+        <!-- 分页功能  固定每页七条数据-->
+        <el-pagination @current-change="handleCurrentChange" :current-page="page.current" :page-size="page.limit"
+            :page-sizes="[7]" layout="total, prev, pager,next,sizes,jumper" :total="page.total" hide-on-single-page>
+        </el-pagination>
+    </div>
+</body>
+<script src="../js/order.js"></script>
+
+</html>

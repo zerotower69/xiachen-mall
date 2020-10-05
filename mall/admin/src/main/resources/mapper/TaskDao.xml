@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zero.xiachen.mall.admin.dao.TaskDao">
+
+    <resultMap type="com.zero.xiachen.mall.admin.entity.TaskEntity" id="TaskMap">
+        <result property="taskId" column="task_id" jdbcType="OTHER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="startTime" column="start_time" jdbcType="TIMESTAMP"/>
+        <result property="predictTime" column="predict_time" jdbcType="TIMESTAMP"/>
+        <result property="realTime" column="real_time" jdbcType="TIMESTAMP"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="info" column="info" jdbcType="VARCHAR"/>
+        <result property="history" column="history" jdbcType="BOOLEAN"/>
+        <result property="overtime" column="overtime" jdbcType="BOOLEAN"/>
+    </resultMap>
+
+</mapper>

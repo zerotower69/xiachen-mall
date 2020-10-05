@@ -1,0 +1,39 @@
+@import url("../lib/element-ui/lib/theme-chalk/index.css");
+
+.data-empty {
+    color: rgb(25, 15, 161);
+    font-size: 45px;
+    text-align: center;
+}
+
+.info-button {
+    color: rgb(16, 194, 218);
+}
+
+.tableBox>th {
+    padding: 0!important;
+    height: 15px;  /*我想设置的高度*/
+    line-height: normal;
+    text-align: center!important;
+}
+.tableBox>td{
+    padding: 0!important;
+    height: 15px;
+    line-height: normal;
+    text-align: center!important;
+}
+
+.add-button {
+    color: rgb(37, 145, 233);
+    float: right;
+    font-size: 25px;
+}
+
+.change-icon-size {
+    font-size: 25px;
+}
+
+.content-input {
+    width: 400px;
+    height: 250px;
+}

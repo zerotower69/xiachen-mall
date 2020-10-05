@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<!-- 备注信息 -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理系统</title>
+    <!-- 引入vue -->
+    <script src="../static/lib/vue/dist/vue.js"></script>
+    <!-- 引入 javascript -->
+    <script src="../static/lib/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" href="../static/css/admin.css">
+    <!-- 引入 axios -->
+    <script src="../static/lib/axios/dist/axios.js"></script>
+    <!-- 引入jquery -->
+    <script src="../static/lib/jquery/dist/jquery.js"></script>
+</head>
+
+<body>
+    <!-- 在这里引入内容 -->
+    <div id="app">
+        <!-- 记得写id -->
+        <el-container :style="{height:screenHeight-20+'px'}">
+            <el-header style="text-align: center;">
+                <span style="font-size: 45px;float:left;color:gold;">后台管理系统</span>
+                <span id="title-center">商品管理</span>
+            </el-header>
+            <el-container>
+                <el-aside width="200px" style="background-color:aquamarine;">
+                    <el-menu default-active="1" @open="handleOpen" style="background-color: inherit;">
+                        <!-- <el-submenu :index="1">
+                            <template slot="title"> <i class="el-icon-goods"></i> 商品管理</template>
+                        </el-submenu> -->
+                        <el-menu-item index="1" @click="menuHandleSelect('../static/page/product.html','商品管理')"> <i class="el-icon-goods"></i> 商品管理</el-menu-item>
+                        <el-menu-item index="2"  @click="menuHandleSelect('../static/page/order.html','订单管理')"><i class="el-icon-message"></i> 订单管理</el-menu-item>
+                        <el-menu-item index="3"  @click="menuHandleSelect('../static/page/user.html','用户管理')"><i class="el-icon-user"></i>用户管理</el-menu-item>
+                        <el-menu-item index="4" @click="menuHandleSelect('../static/page/settings.html','系统开发任务')"><i class="el-icon-setting"></i>开发进度提醒</el-menu-item>
+                    </el-menu>
+                </el-aside>
+                <el-main style="display: flex;flex-direction: column;background-color:white" id="main">
+                   <iframe v-bind:src="iframeUrl" frameborder="0" class="page" style="display: block; flex: 1;"></iframe>
+                </el-main>
+            </el-container>
+        </el-container>
+    </div>
+</body>
+
+</html>
+<script src="../static/js/admin.js"></script>

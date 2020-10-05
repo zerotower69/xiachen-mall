@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zero.xiachen.mall.admin.dao.ProductDao">
+
+    <resultMap type="com.zero.xiachen.mall.admin.entity.ProductEntity" id="ProductMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="productName" column="product_name" jdbcType="VARCHAR"/>
+        <result property="productInfo" column="product_info" jdbcType="VARCHAR"/>
+        <result property="productCode" column="product_code" jdbcType="VARCHAR"/>
+        <result property="productNum" column="product_num" jdbcType="INTEGER"/>
+        <result property="productCategory" column="product_category" jdbcType="VARCHAR"/>
+        <result property="productPrice" column="product_price" jdbcType="NUMERIC"/>
+        <result property="productUnit" column="product_unit" jdbcType="VARCHAR"/>
+        <result property="imgAddr" column="img_addr" jdbcType="VARCHAR"/>
+    </resultMap>
+
+</mapper>

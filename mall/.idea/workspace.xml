@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4bddf839-522e-4bde-b9c0-1b1b82ec0779" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+    <option name="PARALLEL_COMPILATION" value="true" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mymall@182.92.200.48" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mymall@182.92.200.48" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mymall@182.92.200.48" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mymall: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1i7RASObwo2NQVMSoFBCNXimPO7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../springBoot/pages" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.7491369" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="com.sjhy.plugin.ui.TemplateSettingPanel" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ZeroTower Code\2020实习课题\总设计\mall\admin\src\main\resources\static" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.zero.xiachen.mall.order" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.zero.xiachen.mall.admin.config" />
+      <recent name="com.zero.xiachen.mall.order.feign" />
+      <recent name="com.zero.xiachen.mall.main.config" />
+      <recent name="com.zero.xiachen.mall.gateway.config" />
+      <recent name="com.zero.xiachen.mall.user.config" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ZeroTower Code\2020实习课题\总设计\mall\user\src\main\resources\templates" />
+      <recent name="D:\ZeroTower Code\2020实习课题\总设计\mall\main\src\main\resources\static\css" />
+      <recent name="D:\ZeroTower Code\2020实习课题\总设计\mall\admin\src\main\resources\static\css" />
+      <recent name="D:\ZeroTower Code\2020实习课题\总设计\mall\admin\src\main\resources\templates" />
+      <recent name="D:\ZeroTower Code\2020实习课题\总设计\mall\admin\src\main\resources\static\js" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.AdminApplication">
+    <configuration name="TimeUtils" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zero.xiachen.mall.admin.Utils.TimeUtils" />
+      <module name="admin" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zero.xiachen.mall.admin.Utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdminApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="admin" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zero.xiachen.mall.admin.AdminApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="email" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zero.xiachen.mall.email.EmailApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zero.xiachen.mall.gateway.GatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zero.xiachen.mall.main.MainApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="order" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zero.xiachen.mall.order.OrderApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="product" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zero.xiachen.mall.product.ProductApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zero.xiachen.mall.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zero.xiachen.mall.user.UserApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.UserApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4bddf839-522e-4bde-b9c0-1b1b82ec0779" name="Default Changelist" comment="" />
+      <created>1601256500679</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601256500679</updated>
+      <workItem from="1601256506952" duration="661000" />
+      <workItem from="1601257477079" duration="8330000" />
+      <workItem from="1601279241763" duration="11445000" />
+      <workItem from="1601297510629" duration="4881000" />
+      <workItem from="1601304496926" duration="112623000" />
+      <workItem from="1601699234585" duration="33508000" />
+      <workItem from="1601817013926" duration="2711000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="361" y="76" key="#Inspections" timestamp="1601276562100">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="76" key="#Inspections/0.0.1536.834@0.0.1536.834" timestamp="1601276562100" />
+    <state x="361" y="76" key="#Project_Structure" timestamp="1601562750582">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="76" key="#Project_Structure/0.0.1536.834@0.0.1536.834" timestamp="1601562750582" />
+    <state x="361" y="76" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601275809138">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="76" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1601275809138" />
+    <state x="513" y="220" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601342822846">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="513" y="220" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834@0.0.1536.834" timestamp="1601342822846" />
+    <state x="574" y="127" key="#com.intellij.ide.util.MemberChooser" timestamp="1601705610309">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="574" y="127" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1601705610309" />
+    <state x="499" y="193" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1601618563527">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="499" y="193" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1536.834@0.0.1536.834" timestamp="1601618563527" />
+    <state x="289" y="342" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1601354842409">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="289" y="342" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.834@0.0.1536.834" timestamp="1601354842409" />
+    <state x="548" y="276" width="463" height="291" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1601370477053">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="548" y="276" width="463" height="291" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.834@0.0.1536.834" timestamp="1601370477053" />
+    <state x="548" y="297" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1601354843678">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="548" y="297" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1536.834@0.0.1536.834" timestamp="1601354843678" />
+    <state x="354" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601354430035">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="354" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.834@0.0.1536.834" timestamp="1601354430035" />
+    <state x="449" y="222" key="DUMP_DIALOG_DIMENSION_KEY" timestamp="1601885318750">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="449" y="222" key="DUMP_DIALOG_DIMENSION_KEY/0.0.1536.834@0.0.1536.834" timestamp="1601885318750" />
+    <state x="466" y="158" key="FileChooserDialogImpl" timestamp="1601885332938">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="466" y="158" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1601885332938" />
+    <state width="1493" height="151" key="GridCell.Tab.0.bottom" timestamp="1601885704135">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="151" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1601885704135" />
+    <state width="1493" height="151" key="GridCell.Tab.0.center" timestamp="1601885704135">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="151" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1601885704135" />
+    <state width="1493" height="151" key="GridCell.Tab.0.left" timestamp="1601885704134">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="151" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1601885704134" />
+    <state width="1493" height="151" key="GridCell.Tab.0.right" timestamp="1601885704135">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="151" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1601885704135" />
+    <state width="1493" height="151" key="GridCell.Tab.1.bottom" timestamp="1601885704135">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="151" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1601885704135" />
+    <state width="1493" height="151" key="GridCell.Tab.1.center" timestamp="1601885704135">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="151" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1601885704135" />
+    <state width="1493" height="151" key="GridCell.Tab.1.left" timestamp="1601885704135">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="151" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1601885704135" />
+    <state width="1493" height="151" key="GridCell.Tab.1.right" timestamp="1601885704135">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="151" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1601885704135" />
+    <state x="299" y="72" key="Maven.ArtifactSearchDialog" timestamp="1601343219621">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="299" y="72" key="Maven.ArtifactSearchDialog/0.0.1536.834@0.0.1536.834" timestamp="1601343219621" />
+    <state x="349" y="79" key="Registry" timestamp="1601279042661">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="349" y="79" key="Registry/0.0.1536.834@0.0.1536.834" timestamp="1601279042661" />
+    <state x="270" y="0" key="SettingsEditor" timestamp="1601650816635">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="270" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1601650816635" />
+    <state x="548" y="240" width="439" height="345" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1601374940446">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="548" y="240" width="439" height="345" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1536.834@0.0.1536.834" timestamp="1601374940446" />
+    <state x="478" y="57" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1601748437988">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="478" y="57" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.834@0.0.1536.834" timestamp="1601748437988" />
+    <state x="178" y="112" key="new project wizard" timestamp="1601434020690">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="178" y="112" key="new project wizard/0.0.1536.834@0.0.1536.834" timestamp="1601434020690" />
+    <state x="431" y="154" width="672" height="678" key="search.everywhere.popup" timestamp="1601796858215">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="431" y="154" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1601796858215" />
+  </component>
+</project>

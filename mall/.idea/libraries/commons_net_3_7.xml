@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="commons-net-3.7">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-net-3.7/commons-net-3.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

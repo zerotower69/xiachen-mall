@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<!-- 备注信息 -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>登录系统</title>
+    <!-- 引入vue -->
+    <script src="http://unpkg.com/vue/dist/vue.js "></script>
+    <!-- 引入 javascript -->
+    <script src="http://unpkg.com/element-ui@2.13.2/lib/index.js"></script>
+    <!-- 引入 样式表  -->
+    <link rel="stylesheet" href="../static/css/login.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+</head>
+
+<body>
+    <!-- 在这里引入内容 -->
+    <div id="app">
+        <!-- 记得写id -->
+        <el-card class="box-card">
+            <span style="font-size:40px;"><b>登录页面</b></span><br>
+            <hr />
+            <el-form :model="ruleForm" status-icon ref="ruleForm" :rules="rules" label-width="80px" class="login-form">
+                <el-form-item label="用户名" prop="user" class="login-item">
+                    <el-input type="text" v-model="ruleForm.user" auto-complete="off" placeholder="请输入用户名或者邮箱">
+                    </el-input>
+                </el-form-item>
+                <el-form-item label="密码" prop="password" class="login-item">
+                    <el-input type="password" v-model="ruleForm.password" auto-complete="off" placeholder="请输入密码">
+                    </el-input>
+                </el-form-item>
+                <el-form-item style="width:400px;text-align: right;">
+                    <div><a href="http://localhost:9001/page/logup">注册?</a> <a href="http://www.cnu.edu.cn">忘记密码？</a></div>
+                </el-form-item>
+                <el-form-item>
+                    <el-button type="primary" @click="submit(ruleForm)" class="login-button">登录</el-button>
+                </el-form-item>
+            </el-form>
+        </el-card>
+    </div>
+</body>
+<script src="../static/js/login.js"></script>
+</html>

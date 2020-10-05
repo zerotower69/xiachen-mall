@@ -1,0 +1,36 @@
+@import url("https://unpkg.com/element-ui/lib/theme-chalk/index.css");
+
+.box-card {
+    width: 480px;
+    background-color: #f7f3f3dc;
+    margin-left: 500px;
+    margin-top: 100px;
+    text-align: center;
+    height: 450px;
+}
+
+/*自己的样式部分*/
+.login-form {
+    height: 200px;
+    width: 50px;
+    text-align: center;
+}
+
+.login-item {
+    padding: 10px;
+    width: 300px;
+}
+
+.el-input {
+    width: 200px;
+}
+
+.login-button {
+    width: auto;
+    margin-left: 100px;
+}
+
+body {
+    background-image: url("https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=448540215,912140904&fm=26&gp=0.jpg");
+    background-size: 100%;
+}

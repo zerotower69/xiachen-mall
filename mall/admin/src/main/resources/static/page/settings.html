@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+   <meta charset="UTF-8">
+   <!-- 记得改标题 -->
+   <title>我是标题</title>
+   <!-- 引入vue -->
+   <script src="../lib/vue/dist/vue.js"></script>
+   <!-- 引入 javascript -->
+   <script src="../lib/element-ui/lib/index.js"></script>
+   <!--引入 axios js文件  -->
+   <script src="../lib/axios/dist/axios.js"></script>
+   <!-- 引入 配套的样式表  -->
+   <link rel="stylesheet" href="../css/settings.css" />
+</head>
+
+<body>
+   <div id="app">
+      <!-- 记得写id -->
+      <span class="add-button">
+         <el-dialog title="增加任务" :visible.asyc="addTask" :modal="canShow" :close-on-click-modal="canShow"
+            :show-close="notShow" :close-on-press-escape="canShow" center>
+            <el-form label-position="top">
+               <el-form-item label="任务标题">
+                  <el-input v-model="addOne.title" placeholder="请输入任务标题" maxlength="10" show-word-limit
+                     style="width: 500px;"></el-input>
+               </el-form-item>
+               <el-form-item label="任务内容">
+                  <el-input type="textarea" v-model="addOne.content" placeholder="请输入任务内容" maxlength="300"
+                     show-word-limit></el-input>
+               </el-form-item>
+               <el-form-item label="备注信息">
+                  <el-input type="textarea" v-model="addOne.info" placeholder="请输入备注信息" maxlength="300" show-word-limit>
+                  </el-input>
+               </el-form-item>
+               <el-form-item style="text-align: center;">
+                  <el-button class="change-icon-size" type="success" size="medium"
+                     :disabled="!addOne.title||!addOne.content" @click="submitData()"><i class="el-icon-upload2"></i>
+                  </el-button>
+                  <el-button class="change-icon-size" type="danger" icon="el-icon-circle-close" circle
+                     @click="changeAddStatus()"></el-button>
+               </el-form-item>
+            </el-form>
+         </el-dialog>
+         <el-button class="add-button" @click="changeAddStatus()"><i class="el-icon-circle-plus-outline"></i>
+         </el-button>
+      </span>
+      <template v-if="!controll">
+         <span class="data-empty">数据为空或者无法获取数据</span>
+      </template>
+      <template v-if="controll">
+         <!-- 获取到数据才使用表格 -->
+         <el-table :data="taskPage.list" :height="screenHeight-100" border :header-cell-style="{textAlign:'center'}"
+            :cell-style="{padding:'0'}" :row-style="{height:'0'}"
+          highlight-current-row class="tableBox">
+            <el-table-column label="序号" width="60" align="center">
+               <template slot-scope="scope">{{scope.$index+1}}</template>
+            </el-table-column>
+            <el-table-column label="标题" prop="title" width="170" align="center"></el-table-column>
+            <el-table-column label="内容" width="80" align="center">
+               <template slot-scope="scope">
+                  <el-popover placement="bottom" title="任务内容" width=" 200" trigger="hover" :content="scope.row.content">
+                     <el-button type="text" slot="reference">详情</el-button>
+                  </el-popover>
+               </template>
+            </el-table-column>
+            <el-table-column label="备注" width="80" align="center">
+               <template slot-scope="scope">
+                  <el-popover placement="bottom" title="任务内容" width=" 200" trigger="hover" :content="scope.row.info">
+                     <el-button type="text" slot="reference">详情</el-button>
+                  </el-popover>
+               </template>
+            </el-table-column>
+            <!-- 这里比较复杂，涉及许多的操作 -->
+            <el-table-column label="创建/开始/预计/结束时间" width="auto" align="center">
+               <template slot-scope="scope">
+                  <template v-if="scope.row.status==0">
+                     <span>任务创建于:</span>
+                     <el-date-picker v-model="scope.row.createTime" type="datetime" :disabled="canShow" style="height: fit-content;">
+                     </el-date-picker>
+                  </template>
+                  <template v-if="scope.row.status==1">
+                     <span>设定完成时间:</span>
+                     <el-date-picker v-model="scope.row.predictTime" type="datetime" placeholder="选择完成时间"
+                        :disabled="notShow"></el-date-picker>
+                     <el-button type="success" size="medium" :disabled="scope.row.predictTime==null"
+                        @click="confirmSetTime(scope.$index,scope.row)" round><i class="el-icon-check"></i></el-button>
+                     <el-button type="danger" size="medium" @click="cancelSetTime(scope.$index,scope.row)" round><i
+                           class="el-icon-close"></i></el-button>
+                  </template>
+                  <template v-if="scope.row.status==2">
+                     总用时: <span id="clock">{{scope.row.useTime}}</span> 秒
+                  </template>
+                  <template v-if="scope.row.status==3">
+                     从 <span> 年 月 日 时 分 秒</span> <span>至</span> <span> 年 月 日 时 分 秒</span>
+                  </template>
+                  <template v-if="scope.row.status==4">
+                     任务总用时:<span>{{scope.row.useTime}}</span>
+                  </template>
+               </template>
+            </el-table-column>
+            <el-table-column label="状态" width="70" align="center">
+               <template slot-scope="scope">
+                  <!-- 状态不同,图标不同 -->
+                  <span style="font-size: 40px;color:gray"><i class="el-icon-turn-off"
+                        v-if="scope.row.status==0"></i></span>
+                  <span style="font-size: 40px;color:rgb(27, 228, 235)"><i class="el-icon-edit"
+                        v-if="scope.row.status==1"></i></span>
+                  <span style="font-size: 40px;color:rgb(251, 255, 0);"><i class="el-icon-loading"
+                        v-if="scope.row.status==2"></i></span>
+                  <span style="font-size: 40px;color:rgb(238, 20, 20);"><i class="el-icon-video-pause"
+                        v-if="scope.row.status==3"></i></span>
+                  <span style="font-size: 40px;color:rgb(28, 241, 63);"><i class="el-icon-check"
+                        v-if="scope.row.status==4"></i></span>
+               </template>
+            </el-table-column>
+            <!-- 不同状态允许不同的操作 -->
+            <el-table-column label="操作" width="70" align="center">
+               <template slot-scope="scope">
+                  <el-dropdown>
+                     <span><i class="el-icon-s-tools"></i></span>
+                     <el-dropdown-menu>
+                        <!-- 未完成前都可以编辑内容 -->
+                        <el-dropdown-item v-if="!scope.row.history && scope.row.status!=4">
+                           <el-button type="primary" icon="el-icon-edit" size="mini" round>编辑</el-button>
+                        </el-dropdown-item>
+                        <!-- 创建状态可以设定结束时间 -->
+                        <el-dropdown-item v-if="!scope.row.history && scope.row.status==0">
+                           <el-button type="info" icon="el-icon-timer" size="mini" 
+                           @click="setFinishTime(scope.$index)" round>设定时间</el-button>
+                        </el-dropdown-item>
+                        <!-- 暂停状态和计时状态都可以结束任务 -->
+                        <el-dropdown-item v-if="!scope.row.history && (scope.row.status==3|| scope.row.status==4)">
+                           <el-button type="success" icon="el-icon-check" size="mini" round
+                              @click="postData('/task/finish/one',scope.row,'结束')">完成</el-button>
+                        </el-dropdown-item>
+                        <!-- 为2\3可以清空计时 -->
+                        <el-dropdown-item v-if="!scope.row.history && (scope.row.status==2||scope.row.status==3)">
+                           <el-button type="warning" icon="el-icon-refresh-left" size="mini"
+                              @click="postData('/task/reset/one',scope.row,'重置')">重置计时</el-button>
+                        </el-dropdown-item>
+                        <!-- 暂停计时,只有运行时可用 -->
+                        <el-dropdown-item v-if="!scope.row.history && (scope.row.status==2)">
+                           <el-button type="danger" icon="el-icon-video-pause" size="mini"
+                           @click="postData('/task/pause/one',scope.row,'暂停')" >暂停</el-button>
+                        </el-dropdown-item>
+                        <!-- 回复计时,只有暂停态可用 -->
+                        <el-dropdown-item v-if="!scope.row.history && (scope.row.status==3)">
+                           <el-button type="danger" icon="el-icon-video-play" size="mini"
+                           @click="postData('/task/continue/one',scope.row,'重启')">继续</el-button>
+                        </el-dropdown-item>
+                     </el-dropdown-menu>
+                  </el-dropdown>
+               </template>
+            </el-table-column>
+         </el-table>
+         <!-- 分页功能  固定每页10条数据-->
+         <el-pagination @current-change="handleCurrentChange" :current-page="taskPage.current"
+            :page-size="taskPage.limit" :page-sizes="[10]" layout="total, prev, pager,next,sizes,jumper"
+            :total="taskPage.total">
+         </el-pagination>
+      </template>
+   </div>
+</body>
+<!-- 记得引入配套的js文件-->
+<script src="../js/settings.js"></script>
+
+</html>

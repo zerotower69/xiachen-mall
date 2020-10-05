@@ -1,0 +1,46 @@
+@import url("https://unpkg.com/element-ui/lib/theme-chalk/index.css");
+
+.el-header,
+.el-footer {
+    background-color: #25dd6c;
+    color: rgb(245, 14, 14);
+    /* text-align: center; */
+    line-height: 60px;
+}
+
+.el-aside {
+    background-color: #46dff3;
+    color: rgb(0, 255, 0);
+    text-align: center;
+    line-height: 50px;
+}
+
+.el-breadcrumb-item {
+    size: 45px;
+    color: #f7f31d;
+}
+
+#logo {
+    text-align: left;
+    color: #f7f31d;
+    font-size: 45px;
+    text-decoration: none;
+}
+
+#carts {
+    text-align: center;
+    font-size: 45px;
+    color: #f7f31d;
+    width: auto;
+}
+
+#nav {
+    text-align: right;
+    font-size: 45px;
+    color: #f7f31d;
+
+}
+
+a {
+    text-decoration: none;
+}

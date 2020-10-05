@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<!-- 备注信息 -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>用户中心</title>
+    <!-- 引入vue -->
+    <script src="http://unpkg.com/vue/dist/vue.js "></script>
+    <!-- 引入 javascript -->
+    <script src="http://unpkg.com/element-ui@2.13.2/lib/index.js"></script>
+    <!-- 引入 样式表  -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
+    <!-- 引入axios -->
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <!--引入自定义样式表-->
+    <link rel="stylesheet" href="../static/css/member.css"></link>
+</head>
+
+<body>
+    <!-- 在这里引入内容 -->
+    <div id="app">
+        <!-- 记得写id -->
+        <el-container>
+            <el-header>
+                <div style="float: left;color:#f7f31d;font-size:45px;">
+                    <a href="http://localhost:9001" id="logo"><b>夏晨商城</b></a>
+                </div>
+            </el-header>
+            <el-container>
+                <el-aside width="200px">
+                    <template>
+                        <div class="demo-type">
+                            <el-avatar :size="100" src="" @error="errorHandler">
+                                <img src="https://springztmall.oss-cn-beijing.aliyuncs.com/avatar/avatar.jfif" />
+                            </el-avatar>
+                        </div>
+                        <span id="user-info">用户:{{global_userName}}</span>
+                    </template>
+                </el-aside>
+                <el-main>
+                    <div>
+                        <template>
+                            <el-tabs v-model="activeName" type="card" :stretch=true @tab-click="handleClick">
+                                <el-tab-pane label="用户中心" name="first">用户管理</el-tab-pane>
+                                <el-tab-pane label="订单管理" name="second">
+                                    <template>
+                                        <el-table :data="tableData" style="width: 100%">
+                                            <el-table-column prop="date" label="订单序号" width="180">
+                                            </el-table-column>
+                                            <el-table-column prop="name" label="订单编号" width="180">
+                                            </el-table-column>
+                                            <el-table-column prop="address" label="创建时间">
+                                            </el-table-column>
+                                            <el-table-column label="商品数"></el-table-column>
+                                        </el-table>
+                                    </template>
+
+                                </el-tab-pane>
+                                <el-tab-pane label="其它设置" name="third">角色管理</el-tab-pane>
+                            </el-tabs>
+                        </template>
+                    </div>
+                </el-main>
+            </el-container>
+            <el-footer>@Copyright 2020-9-13 联系邮箱：1761552891@qq.com</el-footer>
+        </el-container>
+    </div>
+</body>
+<script>
+    /* 这是vue的位置 */
+    var main = ({
+        data() {
+            return {
+                activeName: 'first',
+                global_userName: "dafault",
+                tableData: [{
+                    date: '2016-05-02',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1518 弄'
+                }, {
+                    date: '2016-05-04',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1517 弄'
+                }, {
+                    date: '2016-05-01',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1519 弄'
+                }, {
+                    date: '2016-05-03',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1516 弄'
+                }]
+            }
+        },
+        methods: {
+            handleClick(tab, event) {
+                console.log(tab, event);
+            },
+            errorHandler() {
+                return true;
+            },
+            loadData() {
+                //页面用户加载
+                const url = "http://localhost:9001/getLoginSession";
+                axios.get(url)
+                    .then(res => {
+                        console.log(res)
+                        //成功的话，用户更新
+                        this.global_userName = res.data
+                    })
+                    .catch(err => {
+                        //打印错误
+                        console.error(err);
+                    })
+            },
+        },
+        created() {
+            this.loadData()
+        }
+    })
+    var Cart = Vue.extend(main)
+    new Cart().$mount('#app')
+</script>
+</html>

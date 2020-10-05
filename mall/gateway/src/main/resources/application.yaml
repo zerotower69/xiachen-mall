@@ -1,0 +1,43 @@
+##WEB应用服务端口
+#server:
+#  port: 9001
+#
+##服务发现
+#spring:
+#  application:
+#    name: xiachen-mall-gateway
+#  cloud:
+#    nacos:
+#      discovery:
+#        enabled: true
+#        server-addr: 182.92.200.48:8848
+#    #网关的配置
+#    gateway:
+#      globalcors:
+#        corsonfigurations:
+#          '[/**]':
+#            #这里有个allowCredentials: true这个东西是设置允许访问携带cookie的，这点一定要和前端对应！
+#            allow-credentials: true
+#            #可以填写多个域名用","隔开 例如："http://www.xiaolc.cn,https://spring.io"  "*"代表允许所有
+#            allowedOrigins: "http://localhost:8080"
+#            allowedMethods:
+#              - POST
+#            allowedHeaders: "*"
+#            max-age: 3600
+#      discovery:
+#        locator:
+#          enabled: true
+#          lower-case-service-id: true
+#      routes:
+#        # #首师大官网页面跳转测试
+#        #- id: cnu_route
+#        #  uri: http://www.cnu.edu.cn
+#        #  predicates:
+#        #  - Query=url,cnu
+#        ###
+#        - id: user_service
+#          uri: lb://xiachen-mall-user
+#          predicates:
+#            - Path=/member/**,/user/**
+#          filters:
+#          #- RewritePath=/member/(?<segment>/?.*),/ber/$\{segment}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zero.xiachen.mall.product.dao.ProductDao">
+
+    <resultMap type="com.zero.xiachen.mall.product.entity.ProductEntity" id="ProductMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="productName" column="product_name" jdbcType="VARCHAR"/>
+        <result property="productInfo" column="product_info" jdbcType="VARCHAR"/>
+        <result property="productCode" column="product_code" jdbcType="VARCHAR"/>
+        <result property="productNum" column="product_num" jdbcType="INTEGER"/>
+        <result property="productCategory" column="product_category" jdbcType="VARCHAR"/>
+        <result property="productPrice" column="product_price" jdbcType="NUMERIC"/>
+        <result property="productUnit" column="product_unit" jdbcType="VARCHAR"/>
+        <result property="imgAddr" column="img_addr" jdbcType="VARCHAR"/>
+    </resultMap>
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into mymall.product(product_name, product_info, product_code, product_num, product_category, product_price, product_unit, img_addr)
+        values (#{productName}, #{productInfo}, #{productCode}, #{productNum}, #{productCategory}, #{productPrice}, #{productUnit}, #{imgAddr})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update mymall.product
+        <set>
+            <if test="productName != null and productName != ''">
+                product_name = #{productName},
+            </if>
+            <if test="productInfo != null and productInfo != ''">
+                product_info = #{productInfo},
+            </if>
+            <if test="productCode != null and productCode != ''">
+                product_code = #{productCode},
+            </if>
+            <if test="productNum != null">
+                product_num = #{productNum},
+            </if>
+            <if test="productCategory != null and productCategory != ''">
+                product_category = #{productCategory},
+            </if>
+            <if test="productPrice != null">
+                product_price = #{productPrice},
+            </if>
+            <if test="productUnit != null and productUnit != ''">
+                product_unit = #{productUnit},
+            </if>
+            <if test="imgAddr != null and imgAddr != ''">
+                img_addr = #{imgAddr},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from mymall.product where id = #{id}
+    </delete>
+
+</mapper>

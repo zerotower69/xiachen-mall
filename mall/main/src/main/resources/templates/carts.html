@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<!-- 备注信息 -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 自动刷新 -->
+    <!-- <meta http-equiv="refresh" content="2"> -->
+    <title>购物车</title>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <!-- 引入 element-ui 组件库 -->
+    <script src="http://unpkg.com/element-ui@2.13.2/lib/index.js"></script>
+    <!-- 引入 样式表  -->
+    <link rel="stylesheet" href="http://localhost:9001/static/css/carts.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- 引入jquery-->
+    <script src="https://springztmall.oss-cn-beijing.aliyuncs.com/static/jquery/dist/jquery.js"></script>
+</head>
+
+<body>
+    <!-- 在这里引入内容 -->
+    <div id="app">
+        <!-- 记得写id -->
+        <el-container :style="{height:screenHeight-20+'px'}">
+            <el-header style="text-align: center;">
+                <span style="font-size: 45px;float:left;color:gold;"><a href="http://localhost:9001"> 夏晨商城</a></span>
+                <span style="font-size: 45px;color:gold;">购物车</span>
+                <span style="float: right;font-size: large;color:black;">
+                    <el-menu mode="horizontal" style="background: inherit;">
+                        <el-menu-item>
+                            <span><a href="http://localhost:9001">商城主页</a></span>
+                        </el-menu-item>
+                        <el-menu-item>
+                            <span><a href="http://localhost:9001/page/member">会员中心</a> </span>
+                        </el-menu-item>
+                        <template v-if="login">
+                            <el-menu-item>
+                                <span>会员：{{global_name}}</span>
+                            </el-menu-item>
+                            <el-menu-item>
+                                <el-button type="primary" size="mini" @click="logout()" round>退出登录</el-button>
+                            </el-menu-item>
+                        </template>
+                        <template v-else>
+                            <el-menu-item>
+                                <a href="http://localhost:9001/page/login"><span>未登录，请登录</span></a>
+                            </el-menu-item>
+                        </template>
+                    </el-menu>
+                </span>
+            </el-header>
+            <el-container>
+                <el-aside width="300px">
+                </el-aside>
+                <el-main>
+                    <!-- 弹窗 -->
+                    <el-dialog title="订单确认" :visible.sync="dialogTableVisible" style="width:auto;">
+                        <el-table :data=" multipleSelection">
+                            <el-table-column label="序号" width="60">
+                                <template slot-scope="scope">
+                                    {{scope.$index+1}}
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="productName" label="商品名" width="200">
+                            </el-table-column>
+                            <el-table-column label="单价" width="80">
+                                <template slot-scope="scope">
+                                    <span>￥{{scope.row.eachPrice |rounding}}</span>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="productNum" label="数量" width="80">
+                            </el-table-column>
+                        </el-table>
+                        <span style="float: right;">总合计 <span
+                                style="color:red;font-size: large;">{{allAmount |rounding}}</span>元</span>
+                        <br>
+                        <el-button type="success" size="medium" @click="payConfirm()" round="">确认</el-button>
+                        <el-button type="danger" size="medium" @click="payCancel()" round="">取消</el-button>
+                    </el-dialog>
+                    <!--  -->
+                    <el-table ref="multipleTable" :data="tableData" tooltip-effect="light" id="table"
+                        style="width: 100%;text-align:center; " @selection-change="handleSelectionChange"
+                        empty-text="你的购物车空空如也！">
+
+                        <el-table-column type="selection" width="55">
+                        </el-table-column>
+                        <el-table-column label="序号" width="60">
+                            <template slot-scope="scope">
+                                {{scope.$index+1}}
+                            </template>
+                        </el-table-column>
+                        <el-table-column prop="productName" label="商品名" width="300">
+                        </el-table-column>
+                        <el-table-column label="单价" width="150">
+                            <template slot-scope="scope">
+                                ￥{{scope.row.eachPrice |rounding}}
+                            </template>
+                        </el-table-column>
+                        <el-table-column label="数量" width="200">
+                            <template slot-scope="scope">
+                                <el-input-number size="mini" v-model="scope.row.productNum" :min="1"
+                                    :max="scope.row.max" @change="changeNum(scope.$index)"></el-input-number>
+                            </template>
+                        </el-table-column>
+                        <el-table-column prop="amount" label="合计" width="100">
+                            <template slot-scope="scope">
+                                ￥{{scope.row.eachPrice*scope.row.productNum |rounding}}
+                            </template>
+                        </el-table-column>
+                        <el-table-column label="操作">
+                            <template slot-scope="scope">
+                                <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除
+                                </el-button>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                    <div>总合计：￥{{allAmount |rounding}}
+                        <div style="float: right;">
+                            <el-button type="primary" id="pay-button" :disabled="disableButton" @click="paying">结算
+                            </el-button>
+                        </div>
+                    </div>
+                    </el-input>
+                </el-main>
+            </el-container>
+            <el-footer>
+            </el-footer>
+        </el-container>
+    </div>
+</body>
+<script src="http://localhost:9001/static/js/carts.js"></script>
+
+</html>

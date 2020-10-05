@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<!-- 备注信息 -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>注册账号</title>
+    <!-- 引入vue -->
+    <script src="http://unpkg.com/vue/dist/vue.js "></script>
+    <!-- 引入 javascript -->
+    <script src="http://unpkg.com/element-ui@2.13.2/lib/index.js"></script>
+    <!-- 引入 样式表  -->
+    <link rel="stylesheet" href="../static/css/logup.css"/>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <!-- 在这里引入内容 -->
+    <div id="app">
+        <!-- 记得写id -->
+        <template>
+            <el-card class="box-card">
+                <div slot="header">
+                    <span style="text-align:center;">注册页面</span>
+                </div>
+                <el-form :model="ruleForm" status-icon ref="ruleForm" :rules="rules" label-width="80px"
+                    class="logup-form">
+                    <el-form-item label="用户名" prop="user" class="logup-item">
+                        <el-input type="text" v-model="ruleForm.user" auto-complete="off" placeholder="请输入用户名"
+                            maxlength="20" show-word-limit>
+                        </el-input>
+                    </el-form-item>
+                    <el-form-item label="密码" prop="passw" class="logup-item">
+                        <el-input type="password" v-model="ruleForm.passw" auto-complete="off"
+                            placeholder="请输入密码,不得多于16位" maxlength="16"></el-input>
+                    </el-form-item>
+                    <el-form-item label="密码验证" prop="chepw" class="logup-item">
+                        <el-input type="password" v-model="ruleForm.chepw" auto-complete="off" maxlength="16"
+                            placeholder="请再次输入密码"></el-input>
+                    </el-form-item>
+                    <el-form-item label="邮箱" prop="email" class="logup-item">
+                        <el-input type="email" v-model="ruleForm.email" auto-complete="off" placeholder="请输入邮箱"
+                            style="width:auto;">
+                        </el-input>
+                        <el-button type="primary" @click="getCode()" :disabled="disabled">
+                            <template v-if="sending">
+                                发送验证码
+                            </template>
+                            <template v-else>
+                                {{second}}秒后重发
+                            </template>
+                        </el-button>
+                    </el-form-item>
+                    <el-form-item label="验证码" prop="code">
+                        <el-input v-model="ruleForm.code" type="text" placeholder="6位数字" maxlength="6" show-word-limit
+                            style="width: 140px;"></el-input>
+                        <el-button type="primary" @click="validateCode()" :disabled="validatorButton">验证</el-button>
+                    </el-form-item>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button type="primary" @click="submit('ruleForm')" :disabled="register" class="logup-button">
+                            注册</el-button>
+                    </el-form-item>
+
+                </el-form>
+            </el-card>
+        </template>
+    </div>
+</body>
+<script src="../static/js/logup.js"></script>
+
+</html>

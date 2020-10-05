@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+
+<!-- 设计我的商城 -->
+
+<head>
+    <meta charset="utf-8">
+    <title>夏晨商城</title>
+    <!-- 引入vue -->
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <!-- 引入 element-ui 组件库 -->
+    <script src="http://unpkg.com/element-ui@2.13.2/lib/index.js"></script>
+    <!-- 样式渲染 -->
+    <link rel="stylesheet" href="../static/css/main.css">
+    <!-- vue数据 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <el-container :style="{height:screenHeight-20+'px'}">
+            <el-header style="text-align: center;">
+                <span style="font-size: 45px;float:left;color:gold;"><a href="http://localhost:9001"> 夏晨商城</a></span>
+                <span style="font-size: 30px;float: right;">
+                    <el-menu mode="horizontal" @open="handleOpen" @close="handleClose" style="background: inherit;">
+                        <el-menu-item>
+                            <template v-if="login">
+                                用户:<a href="http://localhost:9001/page/member" style="font-size:30px;"><span
+                                        style="color: red;">{{global_user}}</span></a>
+                            </template>
+                            <template v-else>
+                                <a href="http://localhost:9001/page/login">未登录，请登录</a>
+                            </template>
+                        </el-menu-item>
+                        <template v-if="login">
+                            <el-button type="primary" size="medium" @click="logout()">退出登录</el-button>
+                        </template>
+                        <template v-else>
+                        </template>
+                        <el-menu-item><a href="http://localhost:9001/page/member">会员中心</a></el-menu-item>
+                        <el-menu-item><a href="http://localhost:9001/page/show/carts">购物车</a></el-menu-item>
+                        <el-menu-item><a href="http://localhost:8005">后台管理系统</a> </el-menu-item>
+                    </el-menu>
+                </span>
+            </el-header>
+            <el-container>
+                <el-aside width="200px" style="background-color: antiquewhite;">
+                    <!--树形控件-->
+                    <el-tree :data="treeData" :props="defaultProps" accordion @node-click=" handleNodeClick">
+                    </el-tree>
+                </el-aside>
+                <el-main>
+                    <!-- 主内容 -->
+                    <el-dialog title="订单内容" :visible.sync="buyOne" center>
+                        <el-table 
+                        :data="buyOneData" 
+                        :header-cell-style="{textAlign: 'center'}"
+                        :cell-style="{textAlign: 'center'}">
+                          <el-table-column property="productName" label="商品名" width="150"></el-table-column>
+                          <el-table-column property="productCategory" label="商品类别" width="200"></el-table-column>
+                          <el-table-column property="eachPrice" label="商品单价"></el-table-column>
+                          <el-table-column label="数量" width="200">
+                            <template slot-scope="scope">
+                                <el-input-number v-model="scope.row.productNum" size="mini"
+                                    :min="1" :step="1" :controls="true" controls-position="both">
+                                </el-input-number>
+                            </template>
+                          </el-table-column>
+                          <el-table-column label="合计" width="80">
+                              <template slot-scope="scope">
+                                  <span style="color:red">{{scope.row.eachPrice*scope.row.productNum|priceFilter}}</span>
+                              </template>
+                          </el-table-column>
+                        </el-table>
+                        <span style="float: right;">
+                        <el-button type="success" size="medium" @click="buyOneConfirm(buyOneData)">下单</el-button>
+                        <el-button type="danger" size="medium" @click="buyOneCancel">取消</el-button>
+                        </span>
+                      </el-dialog>
+                    <div class="" id="box" alt="">
+                        <ul>
+                            <li v-for="v in tableData">
+                                <el-card :body-style="{ padding: '0px' }">
+                                    <template v-if="v.imgAddr==null">
+                                        <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3909007992,4223073026&fm=26&gp=0.jpghttps://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3909007992,4223073026&fm=26&gp=0.jpg"
+                                            class="product-image" :alt="v.productName">
+                                    </template>
+                                    <template v-else>
+                                        <img :src="v.imgAddr" class="product-image" :alt="v.productName">
+                                    </template>
+                                    <div style="padding: 14px;">
+                                        <el-tag type="info">{{v.productCategory}}</el-tag>
+                                        <span>{{v.productName}}</span> <br>
+                                        <el-tag type="info"
+                                            style="background-color: red;color:black;font-size: larger;">库存</el-tag>
+                                        <span>{{v.productNum}}</span>
+                                        <el-tag type="info">单价</el-tag> <span>{{v.productPrice| priceFilter}}</span>
+                                        <el-tag>/{{v.productUnit}}</el-tag>
+                                        <div class="bottom clearfix">
+                                            <span>
+                                                <el-button type="primary" round @click="buyOneProduct(v)"
+                                                    style="background-color: red;">直接购买
+                                                </el-button>
+                                                <el-button type="text" class="button" round @click="addCart(v)"
+                                                    style="background-color: rgb(98, 181, 248);color:black">加入购物车
+                                                </el-button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </el-card>
+                            </li>
+                        </ul>
+                    </div>
+                </el-main>
+            </el-container>
+            <el-footer height="80px">
+                @Copyright:夏晨商城 2020-9-18 联系我们：15777853671@163.com
+            </el-footer>
+        </el-container>
+    </div>
+</body>
+
+</html>
+<script src="../static/js/main.js"></script>

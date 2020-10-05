@@ -1,0 +1,131 @@
+@import url("http://unpkg.com/element-ui@2.13.2/lib/theme-chalk/index.css");
+
+.el-header {
+    background-color: #2cec56;
+    color: #333;
+    line-height: 60px;
+}
+
+.el-footer {
+    background-color: #2cec56;
+    color: black;
+    line-height: 60px;
+}
+
+.el-aside {
+    color: #333;
+    background-color: #8edbfa;
+    height: 100%;
+}
+
+.el-tree {
+    background-color: inherit;
+    color: #161414;
+    font-size: large;
+}
+
+#box ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#box li {
+    padding: 3px;
+    list-style: none;
+    margin-right: 15px;
+    border: 1px solid #eee;
+}
+
+#box el-img {
+    width: 200px;
+    height: 150px;
+}
+
+/************************************/
+
+.bottom {
+    margin-top: 13px;
+    line-height: 12px;
+}
+
+.button {
+    padding: 0;
+    float: right;
+}
+
+.login_href {
+    text-align: right;
+    color: #4d92ec;
+    object-position: 100px;
+}
+
+#logo {
+    text-align: center;
+    font-size: 45px;
+    color: #f7f31d;
+    text-decoration: none;
+}
+
+
+.product-card {
+    padding: 0px;
+    margin: 0px;
+    height: 400px;
+    width: 200px;
+}
+
+.product-image {
+    width: 200px;
+    height: 200px;
+}
+
+.product-name {
+    position: inherit;
+    float: left;
+    line-height: normal;
+    margin-top: 0px;
+    padding: 0px;
+}
+
+div.outer {
+    width: 250px;
+    height: 400px;
+    padding: 2px 2px;
+    margin: 10px;
+    border: 1px solid rgba(198, 198, 198, 1.0);
+    border-bottom: 2px solid rgba(198, 198, 198, 1.0);
+    background: rgb(214, 236, 240);
+    border-radius: 5px;
+    float: left;
+}
+
+div.outer:hover {
+    box-shadow: 0px 0px 20px 1px #888888;
+}
+
+div.product-image {
+    width: 250px;
+    height: 150px;
+    background-color: #4d92ec;
+}
+
+div.product-info {
+    width: 250px;
+    height: 250px;
+    background-color: #fff;
+}
+
+.el-dialog{
+    display: flex;
+    width: 80%;
+    height: auto;
+    text-align: center;
+}
+.nav {
+    float: right;
+    padding-top: 15px;
+}
+
+a {
+    text-decoration: none;
+}

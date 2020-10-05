@@ -1,0 +1,53 @@
+server:
+  port: 8005
+spring:
+  #static resource can be visited
+  resources:
+    static-locations: classpath:/static
+  mvc:
+    static-path-pattern: /static/**
+  # datasource
+  #basic setttings
+  datasource:
+    url: jdbc:mysql://182.92.200.48:3306/mymall?characterEncoding=UTF8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    platform: mysql
+    #spring boot default datasource: hikari
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      #min connection
+      minimum-idle: 1
+      #max connection
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 10000
+      pool-name: DatebookHikariCP
+      max-lifetime: 30000
+      connection-timeout: 3000
+      connection-test-query: SELECT 1
+  #
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  #devtools settings
+  devtools:
+    restart:
+      enabled: true
+      exclude: templates,static,application.yaml
+  #thymeleaf settings
+  thymeleaf:
+    enabled: true
+    mode: HTML
+    cache: true
+    prefix: classpath:/templates/
+    encoding: UTF-8
+    suffix: .html
+  # mybatis-plus settings
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+

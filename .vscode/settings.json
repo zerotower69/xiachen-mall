@@ -1,0 +1,18 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 10,
+            "server": "182.92.200.48",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "阿里云",
+            "database": "mymall",
+            "username": "root",
+            "password": "123456",
+            "connectionTimeout": 6000
+        }
+    ]
+}
